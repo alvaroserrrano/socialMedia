@@ -2,11 +2,10 @@ const { db } = require("../util/admin");
 
 //fetch all screams
 exports.getAllScreams = (req, res) => {
-  db
-    .collection("screams")
+  db.collection("screams")
     .orderBy("createdAt", "desc")
-    .get(),
-    then((data) => {
+    .get()
+    .then((data) => {
       let screams = [];
       data.forEach((doc) => {
         screams.push({
@@ -20,7 +19,8 @@ exports.getAllScreams = (req, res) => {
         });
       });
       return res.json(screams);
-    }).catch((err) => {
+    })
+    .catch((err) => {
       console.error(err);
       res.status(500).json({ error: err.code });
     });
