@@ -1,7 +1,7 @@
 const { admin, db } = require("./config");
 module.exports = (req, res, next) => {
   let idToken;
-  if ((req, headers.authorization && req.headers.startsWith)) {
+  if ((req, headers.authorization && req.headers.startsWith("Bearer "))) {
     idToken = req.headers.authorization.split("Bearer ")[1];
   } else {
     console.error("No token was found");
