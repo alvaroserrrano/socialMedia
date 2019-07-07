@@ -7,7 +7,7 @@ firebase.initializeApp(config);
 
 const {
   validateSignupData,
-  loginData,
+  validateLoginData,
   reduceUserDetails
 } = require("../util/validators");
 
@@ -23,7 +23,7 @@ exports.signup = (req, res) => {
 
   if (!valid) return res.status(400).json(errors);
 
-  const newImage = "no-img.png";
+  const noImg = "no-img.png";
 
   let token, userId;
 
